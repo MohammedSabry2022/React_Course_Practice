@@ -1,5 +1,6 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/ExpensesFilter/ExpensesFilter";
 const App = () => {
   const expenses = [
     {
@@ -22,16 +23,18 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-
   const addExpenseHandler = (expense) => {
     // const expenseDataApp = { ...expense };
     console.log(expense);
+  };
+  const onSelectYearHandler = (filterdYear) => {
+    return filterdYear;
   };
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expenses} filterdYearP={onSelectYearHandler} />
     </div>
   );
 };
